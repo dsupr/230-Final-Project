@@ -9,13 +9,6 @@ class BinaryTreeNode
 {
     public:
 
-        /*
-        int studentID;
-        std::string name;
-        std::string curriculuum;
-        double gpa;
-        */
-
         StudentRecord *data;
 
     

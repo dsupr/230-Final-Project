@@ -25,6 +25,6 @@ class BinaryTree
         void gotoFirst();
         bool getCurrent(BinaryTreeNode *&d);
         void gotoNext();
-        bool search (string d) {return search(d,root);};
+        bool search(string d) {return search(d,root);};
 };
 
