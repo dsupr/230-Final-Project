@@ -1,3 +1,5 @@
+#pragma once
+
 class StudentRecord
 {
     public:
@@ -5,4 +7,5 @@ class StudentRecord
         string name;
         string curriculuum;
         double gpa;
+        
 };
