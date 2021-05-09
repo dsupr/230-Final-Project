@@ -3,7 +3,7 @@
 
 HashTable::HashTable()
 {
-    for (int i = 0; i < 1000; i++)
+    for (int i = 0; i < TABLESIZE; i++)
     {
         data[i] = nullptr;
     }
@@ -14,50 +14,37 @@ void HashTable::insert(StudentRecord *d)
 {
     int index;
 
-    /*
-    switch (d->gender)
-    {
-        case 'F':
-            index = (d->number - 1) * 2;
-            break;
-        case 'M':
-            index = (d->number - 1) * 2 + 1;
-            break;
-        default:
-            index = 1000;
-    }
-
+    index = d->studentID % TABLESIZE;
     data[index] = d;
-    */
+
 }
 
 
-bool HashTable::get (char g, int n, StudentRecord *&d)
+bool HashTable::get (int id, StudentRecord *&d)
 {
-    int index;
-    /*
-    switch (g)
-    {
-        case 'F':
-            index = (n - 1) * 2;
-            break;
-        case 'M':
-            index = (n - 1) * 2 + 1;
-            break;
-        default:
-            index = 1000;
-    }
-    if ((index < 0) || (index >= 1000))
-    {
-        return false;
-    }
-    if (data[index] == nullptr)
-    {
-        return false;
-    }
+    id = id % TABLESIZE;
+    d = data[id];
 
-    d = data[index];
-    return true;
-    */
    return true;
+}
+
+int HashTable::indexCount()
+{
+    int count = 0;
+    int index = 0;
+
+    if (data[index] == nullptr) 
+    {
+        return count;
+    }
+    else 
+    {
+        while (data[index] != nullptr)
+        {
+            count++;
+            index++;
+        }
+    }
+    return count;
+
 }

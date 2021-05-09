@@ -22,7 +22,7 @@ int main()
 
     fin.open ("students.txt");
 
-    while (fin >> studentID >> name >> curriculuum >> gpa)
+    while (fin >> studentID >> name >> curriculuum >> gpa)  
     {
         student = new StudentRecord;
         student->studentID = studentID;
@@ -33,23 +33,28 @@ int main()
     }
     fin.close();
 
-    cout << "ohhhh very nice" << endl;
+    int test = 0;
+    test = table.indexCount();
+    cout << "TEST: " << test << endl;
 
-    /*
-    while (gender != '0')
+
+    while (studentID != '0')
     {
-        cout << "Enter gender and number: ";
-        cin >> gender >> number;
-        if (table.get(gender, number, person))
+        cout << "Enter studentID: ";
+        cin >> studentID;
+        if (table.get(studentID, student))
         {
-            cout << person->name << endl << endl;
+            cout << student->name << endl;
+            cout << student->curriculuum << endl;
+            cout << student->gpa << endl << endl;
+            
         }
         else
         {
-            cout << gender << " " << number << " not found" << endl << endl;
+            cout << studentID  << " not found" << endl << endl;
         }
     }
-    */
+    
 
     return 0;
 }

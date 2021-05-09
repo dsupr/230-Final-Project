@@ -3,12 +3,14 @@
 class HashTable
 {
     private:
-        StudentRecord *data[1000];
+        static const int TABLESIZE = 1000;
+        StudentRecord *data[TABLESIZE];
 
     public:
         HashTable();
         void insert(StudentRecord *d);
-        bool get (char g, int n, StudentRecord *&d);
+        bool get (int id, StudentRecord *&d);
+        int indexCount();
 };
 
 
