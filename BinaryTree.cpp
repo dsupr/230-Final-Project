@@ -5,13 +5,13 @@
 void BinaryTree::insert(BinaryTreeNode *d, BinaryTreeNode * &p) 
 {
     if (p == nullptr)
-    {
+    {   
         p = new BinaryTreeNode();
-        p->data->name = d->data->name;
+        p->data = d->data;
         return;
     }
     if (d->data->name <= p->data->name)
-    {
+    {   
         insert (d,p->left);
     }
     else

@@ -37,16 +37,53 @@ int main()
     HashTable table;
     BinaryTree tree;
 
-    StudentRecord *student, *bruh;
-    BinaryTreeNode *treenode, *bruhh;
+    StudentRecord *student;
+    BinaryTreeNode *treenode;
     fstream fin;
 
     int studentID;
     string name;
     string curriculuum;
     double gpa;
-    
 
+    //TESTING
+
+    student = new StudentRecord;
+    student->studentID = 42069;
+    student->name = "Joe";
+    student->curriculuum = "weed";
+    student->gpa = 4.2;
+
+    treenode = new BinaryTreeNode;
+    treenode->data = student;
+
+    cout << "treenode name: " << treenode->data->name << endl;
+
+    tree.insert(treenode); 
+
+    string yoo ;    
+
+    tree.gotoFirst();
+
+    if(tree.getCurrent(yoo)) 
+    {
+        cout << "getcurr returned true" << endl;
+    }
+    else 
+    {
+        cout << "getcurr returned false" << endl;
+    }
+
+    //tree.getCurrent(yoo);
+    
+    cout << "F: " << yoo << endl;
+
+    cout << "wakanda" << endl;
+    
+    tree.gotoFirst();
+
+    cout << "still here?" << endl;
+    
     fin.open ("students.txt");
 
     while (fin >> studentID >> name >> curriculuum >> gpa)  
@@ -59,10 +96,10 @@ int main()
         
         table.insert(student);
 
-        //bruhh->data = student;
+        treenode = new BinaryTreeNode;
+        treenode->data = student;
 
-        //tree.insert(bruhh);
-        //yooo ^
+        tree.insert(treenode);       //this line breaks everything
         
         //treenode = new BinaryTreeNode;
         //treenode->data = student;
