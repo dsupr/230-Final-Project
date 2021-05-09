@@ -1,4 +1,5 @@
 #include "BinaryTree.h"
+//#include "BinaryTreeNode.h"
 //#include "StudentRecord.h"
 
 void BinaryTree::insert(BinaryTreeNode *d, BinaryTreeNode * &p) 

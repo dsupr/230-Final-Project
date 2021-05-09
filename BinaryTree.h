@@ -1,9 +1,9 @@
 #include "BinaryTreeNode.h"
 #include "Stack.h"
-#include "StudentRecord.h"
+
+//#include "StudentRecord.h"
 
 #include <string>
-using namespace std;
 
 class BinaryTree
 {

@@ -1,5 +1,7 @@
 #include "StackNode.h"
 
+#pragma once
+
 class TStack
 {
     private:

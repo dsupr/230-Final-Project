@@ -1,4 +1,4 @@
-#include "StudentRecord.h"
+#pragma once
 
 class TStackNode
 {

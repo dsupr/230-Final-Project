@@ -3,16 +3,37 @@
 #include <fstream>
 
 using namespace std;
-//#include "StudentRecord.h"
+
+//#include "BinaryTree.h"
+//#include "BinaryTreeNode.h"
+#include "BinaryTree.cpp"
+
 //#include "HashTable.h"
+#include "HashTable.cpp"
+
+//#include "StackNode.h"
+//#include "Stack.h"
+#include "Stack.cpp"
+
+#include "StudentRecord.h"
+
+//BRUH
+/*
+#include "StudentRecord.h"
+#include "StackNode.h"
+#include "HashTable.h"
 
 #include "BinaryTree.cpp"
 #include "Stack.cpp"
 
 #include "HashTable.cpp"
-
+*/
 int main()
-{
+{   
+
+    //cout << "Hello bruh" << endl;
+    //cout << "mutha flippin nani???" << endl;
+    
     HashTable table;
     BinaryTree tree;
 
@@ -38,10 +59,10 @@ int main()
         
         table.insert(student);
 
-        bruhh->data = student;
+        //bruhh->data = student;
 
-        tree.insert(bruhh);
-        
+        //tree.insert(bruhh);
+        //yooo ^
         
         //treenode = new BinaryTreeNode;
         //treenode->data = student;
@@ -59,8 +80,8 @@ int main()
     test = table.indexCount();
     cout << "TEST: " << test << endl;
 
-
-    while (studentID != '0')
+    
+    while (studentID != 42069)
     {
         cout << "Enter studentID: ";
         cin >> studentID;
@@ -77,6 +98,19 @@ int main()
         }
     }
     
+
+    
+    
+    // yooooooo
+
+    string f ;
+    tree.getCurrent(f);
+    
+    cout << "F: " << f << endl;
+
+
+    
+
 
     return 0;
 }
