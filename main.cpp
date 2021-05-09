@@ -30,15 +30,12 @@ using namespace std;
 */
 int main()
 {   
-
-    //cout << "Hello bruh" << endl;
-    //cout << "mutha flippin nani???" << endl;
     
     HashTable table;
     BinaryTree tree;
 
     StudentRecord *student;
-    BinaryTreeNode *treenode;
+    BinaryTreeNode *treenode, *printout;
     fstream fin;
 
     int studentID;
@@ -46,44 +43,8 @@ int main()
     string curriculuum;
     double gpa;
 
-    //TESTING
-
-    student = new StudentRecord;
-    student->studentID = 42069;
-    student->name = "Joe";
-    student->curriculuum = "weed";
-    student->gpa = 4.2;
-
-    treenode = new BinaryTreeNode;
-    treenode->data = student;
-
-    cout << "treenode name: " << treenode->data->name << endl;
-
-    tree.insert(treenode); 
-
-    string yoo ;    
-
     tree.gotoFirst();
 
-    if(tree.getCurrent(yoo)) 
-    {
-        cout << "getcurr returned true" << endl;
-    }
-    else 
-    {
-        cout << "getcurr returned false" << endl;
-    }
-
-    //tree.getCurrent(yoo);
-    
-    cout << "F: " << yoo << endl;
-
-    cout << "wakanda" << endl;
-    
-    tree.gotoFirst();
-
-    cout << "still here?" << endl;
-    
     fin.open ("students.txt");
 
     while (fin >> studentID >> name >> curriculuum >> gpa)  
@@ -99,19 +60,48 @@ int main()
         treenode = new BinaryTreeNode;
         treenode->data = student;
 
-        tree.insert(treenode);       //this line breaks everything
-        
-        //treenode = new BinaryTreeNode;
-        //treenode->data = student;
-        
-        
-        
-        //treenode->data->curriculuum
-
-        
-        //tree.insert(treenode->data->name);
+        tree.insert(treenode);  
     }
     fin.close();
+
+    tree.gotoFirst();
+
+    printout = new BinaryTreeNode;
+    while (tree.getCurrent(printout)) 
+    {
+        tree.getCurrent(printout);
+
+        cout << printout->data->studentID << "   " << printout->data->name << "   " << printout->data->curriculuum << "   " << printout->data->gpa << endl; 
+
+        tree.gotoNext();
+    }
+
+    string entry;
+    cout << "Enter name to search: " << endl;
+    cin >> entry;
+    if (tree.search(entry))
+    {
+        cout << entry << endl;
+    }
+    else
+    {
+        cout << "***** NOT FOUND *****" << endl;
+    }
+
+    /*
+    tree.getCurrent(yoo);
+
+    cout << "yoo: " << yoo << endl; 
+
+    tree.gotoNext();
+
+    tree.getCurrent(yoo);
+
+    cout << "yoo: " << yoo << endl; 
+
+*/
+
+    /*
 
     int test = 0;
     test = table.indexCount();
@@ -146,7 +136,7 @@ int main()
     cout << "F: " << f << endl;
 
 
-    
+    */
 
 
     return 0;

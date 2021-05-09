@@ -15,7 +15,7 @@ class BinaryTree
 
         void insert(BinaryTreeNode *d, BinaryTreeNode * &p);
         //void insert(string d, BinaryTreeNode * &p);
-        bool search(BinaryTreeNode *d, BinaryTreeNode * &p);
+        bool search(string d, BinaryTreeNode * &p);
         void slideLeft();
 
     public: 
@@ -23,8 +23,8 @@ class BinaryTree
 
         void insert(BinaryTreeNode *d) {insert(d, root);};
         void gotoFirst();
-        bool getCurrent(string &d);
+        bool getCurrent(BinaryTreeNode *&d);
         void gotoNext();
-        bool search (BinaryTreeNode *d) {return search(d,root);};
+        bool search (string d) {return search(d,root);};
 };
 

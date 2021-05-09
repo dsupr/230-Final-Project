@@ -45,13 +45,13 @@ void BinaryTree::gotoFirst()
 }
 
 
-bool BinaryTree::getCurrent(string &d)
+bool BinaryTree::getCurrent(BinaryTreeNode *&d)
 {
     if (current == NULL)
     {
         return false;
     }
-    d = current->data->name;
+    d->data = current->data;
     return true;
 }
 
@@ -74,21 +74,25 @@ void BinaryTree::gotoNext()
     }
 }
 
-
-bool BinaryTree::search(BinaryTreeNode *d, BinaryTreeNode * &p)
-{
-    cout << '-' << endl;
+bool BinaryTree::search(string d, BinaryTreeNode * &p)
+{   
+    cout << endl;
+    cout << "SEARCHING..." << endl;
+    cout << '-' << p->data->name << " was ";
     if (p == NULL)
     {
         return false;
     }
-    if (p->data->name == d->data->name)
+    if (p->data->name == d)
     {
+        cout << "=" << endl;
         return true;
     }
-    if (d->data->name < p->data->name)
+    if (d < p->data->name)
     {
+        cout << ">" << endl;
         return search(d, p->left);
     }
+    cout << "<" << endl;
     return search(d, p->right);
 }
