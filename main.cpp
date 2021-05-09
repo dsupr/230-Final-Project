@@ -6,12 +6,18 @@ using namespace std;
 //#include "StudentRecord.h"
 //#include "HashTable.h"
 
+#include "BinaryTree.cpp"
+#include "Stack.cpp"
+
 #include "HashTable.cpp"
 
 int main()
 {
     HashTable table;
-    StudentRecord *student;
+    BinaryTree tree;
+
+    StudentRecord *student, *bruh;
+    BinaryTreeNode *treenode, *bruhh;
     fstream fin;
 
     int studentID;
@@ -29,7 +35,23 @@ int main()
         student->name = name;
         student->curriculuum = curriculuum;
         student->gpa = gpa;
+        
         table.insert(student);
+
+        bruhh->data = student;
+
+        tree.insert(bruhh);
+        
+        
+        //treenode = new BinaryTreeNode;
+        //treenode->data = student;
+        
+        
+        
+        //treenode->data->curriculuum
+
+        
+        //tree.insert(treenode->data->name);
     }
     fin.close();
 
