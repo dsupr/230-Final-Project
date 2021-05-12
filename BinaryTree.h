@@ -14,17 +14,16 @@ class BinaryTree
         TStack tstack;
 
         void insert(BinaryTreeNode *d, BinaryTreeNode * &p);
-        //void insert(string d, BinaryTreeNode * &p);
         bool search(string d, BinaryTreeNode * &p);
         void slideLeft();
 
     public: 
-        BinaryTree() {root = nullptr; current = nullptr;};
+        BinaryTree() {root = nullptr; current = nullptr;};   //constructor
 
-        void insert(BinaryTreeNode *d) {insert(d, root);};
+        void insert(BinaryTreeNode *d) {insert(d, root);};   //public function that calls private function
         void gotoFirst();
         bool getCurrent(BinaryTreeNode *&d);
         void gotoNext();
-        bool search(string d) {return search(d,root);};
+        bool search(string d) {return search(d,root);};      //public function that calls private function
 };
 

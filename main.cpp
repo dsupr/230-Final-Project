@@ -20,7 +20,7 @@ int main()
     BinaryTree tree;
 
     StudentRecord *student;
-    BinaryTreeNode *treenode, *printout;
+    BinaryTreeNode *treenode;
     fstream fin;
 
     int studentID;
@@ -34,18 +34,18 @@ int main()
 
     while (fin >> studentID >> name >> curriculuum >> gpa)
     {
-        student = new StudentRecord;
+        student = new StudentRecord;                //creates pointer to newstudent record
         student->studentID = studentID;
         student->name = name;
         student->curriculuum = curriculuum;
         student->gpa = gpa;
 
-        table.insert(student);
+        table.insert(student);                      //insert pointer into hash table
 
-        treenode = new BinaryTreeNode;
+        treenode = new BinaryTreeNode;              //binarytreenode with data pointing to student
         treenode->data = student;
 
-        tree.insert(treenode);
+        tree.insert(treenode);                      //insert treenode to binary tree
     }
     fin.close();
 
@@ -68,37 +68,39 @@ int main()
         switch (userAction)
         {
 
-            case 0:
+            case 0:                             //"0. Exit.""
                 cout << endl;
                 cout << "See you next time! =)" << endl;
                 cout << endl;
                 break;
 
-            case 1:
+            case 1:                             //"1. List all students in alphabetical order"
                 tree.gotoFirst();
 
-                printout = new BinaryTreeNode;
+                treenode = new BinaryTreeNode;
                 cout << endl;
-                while (tree.getCurrent(printout))
+                while (tree.getCurrent(treenode))
                 {
-                    tree.getCurrent(printout);
+                    tree.getCurrent(treenode);
 
-                    cout << left << setw(10) << printout->data->studentID << left << setw(15) << printout->data->name
-                        << left << setw(25) << printout->data->curriculuum << left << setw(50) << printout->data->gpa << endl;
+                    cout << left << setw(10) << treenode->data->studentID << left << setw(15) << treenode->data->name
+                        << left << setw(25) << treenode->data->curriculuum << left << setw(50) << treenode->data->gpa << endl;
 
                     tree.gotoNext();
                 }
                 break;
 
-            case 2:
+            case 2:                             //"2. Find a student by name"
                 cout << "Enter name to search: " << endl;
                 cin >> entry;
+                entry[0] = toupper(entry[0]);       //in case user inputs name with lowercase first letter
                 if (tree.search(entry))
                 {
-                    tree.getCurrent(printout);
+                    
+                    tree.getCurrent(treenode);
                     cout << endl;
-                    cout << left << setw(10) << printout->data->studentID << left << setw(15) << printout->data->name
-                        << left << setw(25) << printout->data->curriculuum << left << setw(50) << printout->data->gpa << endl;
+                    cout << left << setw(10) << treenode->data->studentID << left << setw(15) << treenode->data->name
+                        << left << setw(25) << treenode->data->curriculuum << left << setw(50) << treenode->data->gpa << endl;
                     
                 }
                 else
@@ -107,7 +109,7 @@ int main()
                 }
                 break;
 
-            case 3:
+            case 3:                             //"3. Find a student by student ID."
                 
 
                 cout << "Enter studentID: ";
@@ -120,8 +122,7 @@ int main()
                 }
                 else
                 {
-                    cout << studentID << " not found" << endl
-                        << endl;
+                    cout << endl << "ID " << studentID << " NOT FOUND" << endl << endl;         //error message if ID is not found in data
                 }
                 
                 break;
@@ -131,52 +132,6 @@ int main()
                 break;
             }
     }
-
-    /*
-    tree.gotoFirst();
-
-    printout = new BinaryTreeNode;
-    while (tree.getCurrent(printout))
-    {
-        tree.getCurrent(printout);
-
-        cout << left << setw(10) << printout->data->studentID << left << setw(15) << printout->data->name
-             << left << setw(25) << printout->data->curriculuum << left << setw(50) << printout->data->gpa << endl;
-
-        tree.gotoNext();
-    }
-
-    /*
-    string entry;
-    cout << "Enter name to search: " << endl;
-    cin >> entry;
-    if (tree.search(entry))
-    {
-        cout << entry << endl;
-    }
-    else
-    {
-        cout << "***** NOT FOUND *****" << endl;
-    }
-    
-
-    while (studentID != '0')
-    {
-        cout << "Enter studentID: ";
-        cin >> studentID;
-        if (table.get(studentID, student))
-        {
-            cout << left << setw(10) << student->studentID << left << setw(15) << student->name
-                 << left << setw(25) << student->curriculuum << left << setw(50) << student->gpa << endl;
-        }
-        else
-        {
-            cout << studentID << " not found" << endl
-                 << endl;
-        }
-    }
-
-    */
 
     return 0;
 }

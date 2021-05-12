@@ -1,7 +1,3 @@
-//#include "Stack.h"
-
-//#pragma once
-
 #include "StudentRecord.h"
 #include <string>
 
@@ -9,7 +5,7 @@ class BinaryTreeNode
 {
     public:
 
-        StudentRecord *data;
+        StudentRecord *data;                //BinaryTreeNode has data value of pointer to student record
 
     
         BinaryTreeNode *left, *right;

@@ -16,8 +16,8 @@ bool TStack::pop(BinaryTreeNode * &p)
         return false;
     }
     p = top->data;
-    TStackNode *delNode = top;
+    TStackNode *delNode = top;              //tracing top
     top = top->next;
-    delete delNode;
+    delete delNode;                         //delete
     return true;
 }

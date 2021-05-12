@@ -1,6 +1,3 @@
-//#include "StudentRecord.h"
-
-//#include "HashTable.cpp"
 
 class HashTable
 {
@@ -12,7 +9,7 @@ class HashTable
         HashTable();
         void insert(StudentRecord *d);
         bool get (int id, StudentRecord *&d);
-        int indexCount();
+        int indexCount();                           //not really used in this program but can be helpful
 };
 
 
